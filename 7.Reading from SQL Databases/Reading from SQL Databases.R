@@ -1,6 +1,7 @@
 #Reading from SQL databases}
 
 library(RODBC)
+
 connStr <- paste(
   "Server=msedxeus.database.windows.net",
   "Database=DAT209x01",
@@ -22,42 +23,6 @@ if(.Platform$OS.type != "windows"){
     sep=";"
   )    
 }
-
-conn <- odbcDriverConnect(connStr)
-
-\end{itemize}
-\end{itemize}
-\end{frame}
-
-
-\begin{frame}[fragile]%%\linespread{0.9}
-\frametitle{Connecting to a local SQL Database on your harddisk:}
-\begin{itemize}
-\item Replace server name with the SQL server name on the local machine;
-
-\item With the default SQL installation, this is equal to the {\bf name of the local machine}:
-  
-  
-  \begin{Sinput}
->connStr <- paste(
-  +    "Server=My_Machine",
-  +    "Database=DAT205x01",
-  +    "uid=PBIlogin",
-  +    "pwd=P@ssw0rd",
-  +    "Driver={SQL Server}",
-  +    sep=";"
-  +    )
-
-connStr <- paste(
-  "Server=msedxeus.database.windows.net",
-  "Database=DAT209x01",
-  "uid=PBIlogin",
-  "pwd=P@ssw0rd",
-  "Driver=FreeTDS",
-  "TDS_Version=8.0",
-  "Port=1433",
-  sep=";"
-)
 
 conn <- odbcDriverConnect(connStr)
 
